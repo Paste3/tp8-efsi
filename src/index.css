@@ -3,6 +3,16 @@
     box-shadow: 1px 2px;
 }
 
+.IMGF{
+    width: 50%;
+    text-align: center;
+}
+
+.blanco{
+    color: white;
+    background-color: #000;
+}
+
 .contact{
     background-color: #b8b9b9;
     margin-top: 50px;

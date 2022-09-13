@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import logo from "../logo.png"
 import Personas from "../components/Personas"
 import React from "react";
 import { useState } from "react";
@@ -13,11 +14,20 @@ export default function Persona(props) {
                         if (persona.id === IdPersona) {
                             return (
                                 <>
-                                    <div className="card border-dark mb-3" >
-                                        <div className="card-header">{persona.nombre} {persona.apellido}</div>
-                                        <div className="card-body text-dark">
-                                            <p>Email: {persona.email}</p>
-                                            <p>Edad: {persona.edad}</p>
+                                    <div className="container">
+                                        <div className="card border-dark mb-3" >
+                                            <div className="card-header">{persona.nombre} {persona.apellido}</div>
+                                            <div className="card-body text-dark">
+                                                <p>Email: {persona.email}</p>
+                                                <p>Edad: {persona.edad}</p>
+                                            </div>
+
+                                            <div className="row">
+                                                <div className="4"></div>
+                                                <div className="6">
+                                                    <img src={logo} className="IMGF"></img>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </>
