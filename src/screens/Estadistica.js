@@ -1,63 +1,47 @@
-import Personas from "../components/Personas"
+import Personas from "../components/Personas";
+import Card from "../components/Card"
+
 export default function Estadistica() {
+    let objm = {
+        edad: "200",
+        nombre: "",
+    }
+    let objM = {
+        edad: "0",
+        nombre: "",
+    }
     let mayores35 = [];
     let mayorEdad = [];
-    let nombresMenor = []
-    let nombresMayor = []
     let menorEdad = [];
-    var min = 200;
-    var max = 0;
-    var nombreMayor = "";
-    var nombreMenor = "";
     for (let i = 0; i < Personas.length; i++) {
         if (Personas[i].edad > 35) {
             mayores35.push(Personas[i]);
         }
-        if (Personas[i].edad <= min) {
-            min = Personas[i].edad
-            nombreMenor = Personas[i]
-            menorEdad = []
-            nombresMenor = []
-            nombresMenor.push(nombreMenor)
-            menorEdad.push(min)
+        if (Personas[i].edad <= objm.edad) {
+            objm.edad = Personas[i].edad;
+            objm.nombre = Personas[i].nombre;
         }
-        if (Personas[i].edad >= max) {
-            max = Personas[i].edad
-            nombreMayor = Personas[i]
-            mayorEdad = []
-            nombresMayor = []
-            nombresMayor.push(nombreMayor)
-            mayorEdad.push(max)
+        if (Personas[i].edad >= objM.edad) {
+            objM.edad = Personas[i].edad;
+            objM.nombre = Personas[i].nombre;
         }
-        console.log("min: " + min + " max: " + max);
-        console.log("minimo: " + nombresMenor[i] + " maximo: " + nombresMayor[i]);
+
+        console.log(mayorEdad);
+        console.log(menorEdad);
     }
+    menorEdad.push(objm)
+    mayorEdad.push(objM)
     return (
         <>
-            <p className="blanco">Personas mayores a 35 años({mayores35.length + 1}):</p>
-            <ul>
-                {
-                    mayores35.map(mayor35 => (
-                        <li className="blanco"> {mayor35.nombre} </li>
-                    ))
-                }
-            </ul>
-            <p className="blanco">Personas mayores a 35 años({mayorEdad.length + 1}):</p>
-            <ul>
-                {
-                    mayorEdad.map(mayor => (
-                        <li className="blanco"> {mayor.nombre} </li>
-                    ))
-                }
-            </ul>
-            <p className="blanco">Personas mayores a 35 años({menorEdad.length + 1}):</p>
-            <ul>
-                {
-                    menorEdad.map(menor => (
-                        <li className="blanco"> {menor.nombre} </li>
-                    ))
-                }
-            </ul>
+            <Card titulo="Personas mayores a 35 años" nombres={mayores35.map((mayor35) => (
+                <p className="blanco"> {mayor35.nombre} ({mayor35.edad})</p>
+            ))}></Card>
+            <Card titulo="Persona mas grande" nombres={mayorEdad.map((mayor) => (
+                <p className="blanco"> {mayor.nombre} ({mayor.edad})</p>
+            ))}></Card>
+            <Card titulo="Persona mas chica" nombres={menorEdad.map((menor) => (
+                <p className="blanco"> {menor.nombre} ({menor.edad})</p>
+            ))}></Card>
         </>
-    )
+    );
 }

@@ -1,6 +1,11 @@
 .cardw{
+    margin-top: 15px;
     max-width: 18rem;
     box-shadow: 1px 2px;
+}
+
+.hov:hover{
+    background-color: rgb(196, 195, 195);
 }
 
 .IMGF{
