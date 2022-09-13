@@ -21,10 +21,8 @@ export default function Persona(props) {
                                                 <p>Email: {persona.email}</p>
                                                 <p>Edad: {persona.edad}</p>
                                             </div>
-
                                             <div className="row">
-                                                <div className="4"></div>
-                                                <div className="6">
+                                                <div className="centro 12">
                                                     <img src={logo} className="IMGF"></img>
                                                 </div>
                                             </div>
